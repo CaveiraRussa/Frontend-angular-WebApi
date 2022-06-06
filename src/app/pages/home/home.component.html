@@ -1,0 +1,15 @@
+<div class="container">
+  <app-button
+    (buttonEvent)="novo()"
+    [icon]="'add'"
+    [name]="'Adicionar novo'"
+    [type]="'new'"
+  ></app-button>
+  <app-table
+    class="table"
+    [tableHeader]="usuarioHeaders"
+    [tableValues]="data"
+    [actions]="listActions"
+  >
+  </app-table>
+</div>

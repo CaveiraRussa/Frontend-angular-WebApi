@@ -1,0 +1,30 @@
+<mat-card class="container">
+    <table class="table-list">
+      <tr class="row-header">
+        <th class="border" *ngFor="let item of tableHeader">
+          <span class="th-header">{{ item.title }}</span>
+        </th>
+      </tr>
+      <tr *ngFor="let value of tableValues; let i = index" class="row-value">
+        <td *ngFor="let item of tableHeader" class="border">
+          <span *ngIf="actions && item.alias === 'actions'" class="actions"
+            ><span *ngFor="let action of actions" class="item-action">
+              <mat-icon
+                [matTooltip]="generateTolltipText(action, value)"
+                fontSet="material-icons-outlined"
+                (click)="clicked(action, value)"
+                >{{ action.icon }}</mat-icon
+              >
+            </span>
+          </span>
+          <span
+            *ngIf="value[item.alias]"
+            [matTooltip]="value[item.alias]"
+            matTooltipClass="value-tolltip"
+            >{{ value[item.alias] }}
+          </span>
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+  

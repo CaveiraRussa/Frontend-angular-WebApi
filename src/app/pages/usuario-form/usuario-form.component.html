@@ -1,0 +1,83 @@
+<div class="container">
+  <mat-card class="card">
+    <div class="geral">
+      <app-button
+        class="btn"
+        (buttonEvent)="voltar()"
+        [icon]="'arrow_back'"
+        [name]="''"
+        [type]="'new'"
+      ></app-button>
+      <form [formGroup]="usuarioForm" class="form">
+        <mat-form-field color="accent" appearance="outline" class="field">
+          <mat-label>Nome</mat-label>
+          <input
+            formControlName="nome"
+            matInput
+            maxlength="250"
+            class="input"
+          />
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline" class="field">
+          <mat-label>Sobrenome</mat-label>
+          <input
+            formControlName="sobrenome"
+            matInput
+            maxlength="250"
+            class="input"
+          />
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="outline" class="field">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            matInput
+            maxlength="250"
+            class="input"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Data de nascimento</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="dataDeNascimento"
+            [max]="maxDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Escolaridade</mat-label>
+          <mat-select formControlName="escolaridade">
+            <mat-option
+              *ngFor="let escolaridade of escolaridades"
+              [value]="escolaridade.value"
+            >
+              {{ escolaridade.text }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <app-button
+      *ngIf="path === 'Novo'"
+        (buttonEvent)="salvar()"
+        [disabledButton]="!this.usuarioForm.valid"
+        [icon]="'send'"
+        [name]="'Salvar'"
+        [type]="'new'"
+      ></app-button>
+      <app-button
+        *ngIf="path === 'Editar'"
+        (buttonEvent)="editar()"
+        [disabledButton]="!this.usuarioForm.valid"
+        [icon]="'send'"
+        [name]="'Editar'"
+        [type]="'new'"
+      ></app-button>
+    </div>
+  </mat-card>
+</div>

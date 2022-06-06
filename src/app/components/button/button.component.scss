@@ -1,0 +1,25 @@
+
+.btn {
+    color: #ffffff;
+    background-color: #9da0a4 ;
+    font-weight: lighter;
+    border-radius: 6px;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    text-align: center;
+    box-shadow: 3px 3px 0 #000000;
+    padding: 2px 8px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.cancel {
+    color: #FF5733;
+}
+
+.disabled {
+    background-color: #9da0a4;
+    color: #ffffff;
+    cursor: not-allowed;
+}

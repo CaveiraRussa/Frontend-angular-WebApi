@@ -1,0 +1,15 @@
+<button
+  mat-raised-button
+  (click)="clicked(buttonEvent)"
+  [matTooltip]="tooltip"
+  [disabled]="disabledButton"
+  [ngClass]="disabledButton ? ' icon-disabled' : 'btn ' + type"
+>
+  {{ name }}
+  <mat-icon
+    *ngIf="icon !== ''"
+    [ngClass]="disabledButton ? ' icon-disabled' : ' '"
+    fontSet="material-icons-outlined"
+    >{{ icon }}</mat-icon
+  >
+</button>
